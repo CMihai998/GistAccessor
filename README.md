@@ -1,4 +1,17 @@
 # GistAccessor
+The aim of the project is to be able to access public Gists from Github by providing a username.
+
+The gists will be presented in a table, from the entire data retrieved, only a few tags will be actually displayed in order not to clutter the screen. (More fields can be easily added).
+
+What gets displayed:
+- ID - unique id of the gist
+- Comments - count of the comments to the current gist
+- Created at - date of creation
+- Updated at - date of latest changes
+- Forked by - list of last three users that forked the project (picture + username)
+- File type - list of files addressed in gist (name + tag/badge)
+
+By hovering over the files presented in the last column, the selected file will be presented in a bigger view to let the user know that there are more details available; by pressing on the file, a new tab will be opened where the file content will be displayed.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
