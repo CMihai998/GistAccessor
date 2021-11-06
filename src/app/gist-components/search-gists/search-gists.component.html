@@ -1,0 +1,30 @@
+<div class="wrap">
+  <div class="search">
+    <input type="text" class="searchTerm" placeholder="Username.." #usernameInput>
+    <button (click)="searchGists(usernameInput.value)" class="searchButton">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+    <br>
+
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Comments</th>
+        <th>Crated at</th>
+        <th>Updated at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gist of gists">
+        <td>{{gist.id}}</td>
+        <td>{{gist.comments}}</td>
+        <td>{{gist.created_at}}</td>
+        <td>{{gist.updated_at}}</td>
+      </tr>
+    <tbody>
+  </table>
+</div>
