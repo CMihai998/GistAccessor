@@ -17,6 +17,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Before running the code, you should modify the ACCESS_TOKEN from line 10 in the search-gists.component.ts file.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
