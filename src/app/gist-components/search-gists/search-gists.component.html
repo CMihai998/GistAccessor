@@ -39,7 +39,7 @@
         <td>
           <div class="list-container">
             <ul>
-              <li *ngFor="let file_info of gist.files_info" (click)="showFileContent(file_info.raw_url)">
+              <li *ngFor="let file_info of gist.files_info">
                <a href="{{file_info.raw_url}}" target="_blank">{{file_info.filename}}: {{file_info.type}}</a>
               </li>
             </ul>

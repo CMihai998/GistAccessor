@@ -61,8 +61,4 @@ export class SearchGistsComponent implements OnInit {
       gist.files_info.push(fileData)
     }
   }
-
-  showFileContent(raw_url: any) {
-    console.log(raw_url)
-  }
 }
