@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap-search">
   <div class="search">
     <input type="text" class="searchTerm" placeholder="Username.." #usernameInput>
     <button (click)="searchGists(usernameInput.value)" class="searchButton">
@@ -27,21 +27,26 @@
         <td>{{gist.created_at}}</td>
         <td>{{gist.updated_at}}</td>
         <td>
-          <ul>
-            <li *ngFor="let owner of gist.forks_list">
-              <img src="{{owner.avatar_url}}" width="32" height="32">
-              {{owner.login}}
-            </li>
-          </ul>
+          <div class="list-container">
+            <ul>
+              <li *ngFor="let owner of gist.forks_list">
+                <img src="{{owner.avatar_url}}" width="32" height="32">
+                {{owner.login}}
+              </li>
+            </ul>
+          </div>
         </td>
         <td>
-          <ul>
-            <li *ngFor="let file_type of gist.file_types">
-              {{file_type}}
-            </li>
-          </ul>
+          <div class="list-container">
+            <ul>
+              <li *ngFor="let file_info of gist.files_info" (click)="showFileContent(file_info.raw_url)">
+               <a href="{{file_info.raw_url}}" target="_blank">{{file_info.filename}}: {{file_info.type}}</a>
+              </li>
+            </ul>
+          </div>
        </td>
       </tr>
     <tbody>
   </table>
 </div>
+

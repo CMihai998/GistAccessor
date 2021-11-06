@@ -7,6 +7,7 @@ import { Octokit } from "@octokit/core";
   styleUrls: ['./search-gists.component.css']
 })
 export class SearchGistsComponent implements OnInit {
+  ACCESS_TOKEN: String = "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"
   gists: any
   constructor(private octokit: Octokit) { }
 
@@ -16,7 +17,7 @@ export class SearchGistsComponent implements OnInit {
   searchGists(username: String) {
     this.octokit.request(`GET /users/${username}/gists`, {
       headers: {
-        authorization: "token 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"
+        authorization: `token ${this.ACCESS_TOKEN}`
       }
     }).then(response => {
         this.gists = response.data
@@ -34,7 +35,7 @@ export class SearchGistsComponent implements OnInit {
   setForks(gist: any) {
       this.octokit.request(`GET /gists/${gist.id}/forks`, {
         headers: {
-          authorization: "token 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"
+          authorization: `token ${this.ACCESS_TOKEN}`
         }
       }).then(response => {
         gist.forks_list = []
@@ -55,11 +56,13 @@ export class SearchGistsComponent implements OnInit {
   }
 
   setFileData(gist: any) {
-    gist.file_types = []
-    for (const [fileName, fileData] of Object.entries(gist.files)) {
-        // @ts-ignore
-      gist.file_types.push(`${fileName}: ${fileData.type}`)
+    gist.files_info = []
+    for (const [_, fileData] of Object.entries(gist.files)) {
+      gist.files_info.push(fileData)
     }
   }
 
+  showFileContent(raw_url: any) {
+    console.log(raw_url)
+  }
 }
